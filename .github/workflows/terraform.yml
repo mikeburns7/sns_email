@@ -32,9 +32,7 @@ jobs:
       - name: Sts GetCallerIdentity
         run:
           aws sts get-caller-identity
-  terraform-deploy:    # Better name than AssumeRoleAndCallIdentity
-    runs-on: ubuntu-latest
-    steps:
+          
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3  # Add Terraform setup step
         
