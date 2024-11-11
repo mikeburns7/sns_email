@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2  # Add Terraform setup step
+        uses: hashicorp/setup-terraform@v3  # Add Terraform setup step
         
       - name: Terraform Format
         run: terraform fmt -check  # Check formatting instead of modifying
@@ -49,5 +49,5 @@ jobs:
         
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'  # Only apply on main branch pushes
-        run: terraform apply --auto-approve
+        run: terraform apply -auto-approve
     
