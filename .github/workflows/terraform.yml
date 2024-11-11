@@ -45,9 +45,9 @@ jobs:
         run: terraform init
         
       - name: Terraform Plan
-        run: terraform plan -out=tfplan  # Create plan file
+        run: terraform plan
         
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'  # Only apply on main branch pushes
-        run: terraform apply -auto-approve tfplan
+        run: terraform apply --auto-approve
     
